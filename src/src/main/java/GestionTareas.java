@@ -1,6 +1,6 @@
 public class GestionTareas {
 
-    static void gestorTareas(String[] args) {
+    public static void mostrarGestorTareas() {
 
     }
 
