@@ -28,6 +28,12 @@ public class AnalizadorTexto {
         return sc.nextInt();
     }
 
+    static String PedirTexto(Scanner sc) {
+        String texto = "";
+        System.out.print("Introduce el texto el que quieres analizar: ");
+        texto = sc.nextLine();
+        return texto;
+    }
 
 
 }
