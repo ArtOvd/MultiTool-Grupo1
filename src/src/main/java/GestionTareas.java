@@ -37,4 +37,13 @@ public class GestionTareas {
             }
     }
 
+    static void listarTareas() {
+        System.out.println("=================");
+        System.out.println("LISTA DE TAREAS");
+        System.out.println("=================");
+        for (int i = 0; i <= index; i++) {
+            System.out.println("Tarea " + (i + 1) + ": " +  tareas[i]);
+        }
+    }
+
 }
