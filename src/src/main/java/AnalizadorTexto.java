@@ -7,6 +7,7 @@ public class AnalizadorTexto {
         do {
             MenuAnalizadorTexto();
             opcion = ElegirOpcion(sc);
+            FuncionalidadDelMenu(opcion, sc);
         }while (opcion != 0 );
     }
 
@@ -25,7 +26,9 @@ public class AnalizadorTexto {
     static int ElegirOpcion(Scanner sc) {
         System.out.println();
         System.out.print("Elige opción: ");
-        return sc.nextInt();
+        int opcion = sc.nextInt();
+        sc.nextLine();
+        return opcion;
     }
 
     static String PedirTexto(Scanner sc) {
@@ -35,5 +38,28 @@ public class AnalizadorTexto {
         return texto;
     }
 
+    static void FuncionalidadDelMenu(int opcion,  Scanner sc) {
+        switch (opcion) {
+            case 1:
+                ContarVocales(sc);
+                break;
+            default:
+                System.out.println("Opcion no permetida");
+        }
+    }
 
+
+
+    static void ContarVocales(Scanner sc) {
+        String texto = PedirTexto(sc).toLowerCase();
+        int contador = 0;
+        for (int i = 0; i <= texto.length() - 1; i++) {
+            if (texto.charAt(i) == 'a' || texto.charAt(i) == 'e' || texto.charAt(i) == 'i' || texto.charAt(i) == 'o' || texto.charAt(i) == 'u') {
+                contador++;
+            }
+        }
+        if (contador == 0) {
+            System.out.println("No hay vocales en el texto introducido");
+        }else System.out.println("En el texto introducido hay " + contador + " vocales");
+    }
 }
