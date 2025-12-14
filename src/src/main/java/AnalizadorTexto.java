@@ -11,7 +11,6 @@ public class AnalizadorTexto {
         }while (opcion != 0 );
     }
 
-
     static void MenuAnalizadorTexto() {
         System.out.println("======================================");
         System.out.println("      MENU / ANALIZADOR DE TEXTO      ");
@@ -43,6 +42,9 @@ public class AnalizadorTexto {
             case 1:
                 ContarVocales(sc);
                 break;
+            case 2:
+                ContarPalabras(sc);
+                break;
             default:
                 System.out.println("Opcion no permetida");
         }
@@ -62,4 +64,22 @@ public class AnalizadorTexto {
             System.out.println("No hay vocales en el texto introducido");
         }else System.out.println("En el texto introducido hay " + contador + " vocales");
     }
+
+    static void ContarPalabras(Scanner sc) {
+        String texto = PedirTexto(sc).toLowerCase();
+        texto = texto.replace('.', ' ')
+                .replace(',', ' ')
+                .replace('?', ' ')
+                .replace('!', ' ')
+                .replace(':', ' ')
+                .replace(';', ' ')
+                .replace('-', ' ');
+
+            texto = texto.trim();
+
+            String[] palabras = texto.split("\\s+");
+
+            int cantidad =  palabras.length;
+        System.out.println("El cantidad de palabras en el texto: " + cantidad);
+}
 }
