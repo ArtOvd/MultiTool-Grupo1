@@ -32,8 +32,11 @@ public class AnalizadorTexto {
 
     static String PedirTexto(Scanner sc) {
         String texto = "";
-        System.out.print("Introduce el texto el que quieres analizar: ");
-        texto = sc.nextLine();
+        do {
+            System.out.print("Introduce el texto el que quieres analizar: ");
+            texto = sc.nextLine();
+        }while (!ValidacionTexto(texto));
+
         return texto;
     }
 
@@ -45,8 +48,14 @@ public class AnalizadorTexto {
             case 2:
                 ContarPalabras(sc);
                 break;
+            case 3:
+                PalabraMasLarga(sc);
+                break;
+            case 0:
+                break;
             default:
                 System.out.println("Opcion no permetida");
+                break;
         }
     }
 
@@ -66,7 +75,7 @@ public class AnalizadorTexto {
     }
 
     static void ContarPalabras(Scanner sc) {
-        String texto = PedirTexto(sc).toLowerCase();
+        String texto = PedirTexto(sc);
         texto = texto.replace('.', ' ')
                 .replace(',', ' ')
                 .replace('?', ' ')
@@ -82,4 +91,37 @@ public class AnalizadorTexto {
             int cantidad =  palabras.length;
         System.out.println("El cantidad de palabras en el texto: " + cantidad);
 }
+
+static void PalabraMasLarga(Scanner sc) {
+        String texto = PedirTexto(sc).trim();
+
+    texto = texto.replace('.', ' ')
+            .replace(',', ' ')
+            .replace('?', ' ')
+            .replace('!', ' ')
+            .replace(':', ' ')
+            .replace(';', ' ')
+            .replace('-', ' ');
+
+    texto = texto.trim();
+
+    String[] palabras = texto.split("\\s+");
+
+    String MasLarga = palabras[0];
+    for (int i = 0; i < palabras.length; i++) {
+        if (palabras[i].length() > MasLarga.length()) {
+            MasLarga = palabras[i];
+        }
+    }
+    System.out.println("La palabra mas larga es: " + MasLarga);
+    }
+
+    static boolean ValidacionTexto(String texto) {
+        if (texto.isEmpty()) {
+            System.out.println("El texto no puede estar vacio");
+            return false;
+        }
+        return true;
+    }
+
 }
