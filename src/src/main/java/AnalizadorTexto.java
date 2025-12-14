@@ -62,10 +62,16 @@ public class AnalizadorTexto {
 
 
     static void ContarVocales(Scanner sc) {
+        System.out.println("======================================");
+        System.out.println("      CONTADOR DE VOCALES      ");
+        System.out.println("======================================");
+        System.out.println();
         String texto = PedirTexto(sc).toLowerCase();
         int contador = 0;
         for (int i = 0; i <= texto.length() - 1; i++) {
-            if (texto.charAt(i) == 'a' || texto.charAt(i) == 'e' || texto.charAt(i) == 'i' || texto.charAt(i) == 'o' || texto.charAt(i) == 'u') {
+            if (texto.charAt(i) == 'a' || texto.charAt(i) == 'e' || texto.charAt(i) == 'i' || texto.charAt(i) == 'o' || texto.charAt(i) == 'u'
+            || texto.charAt(i) == 'á' || texto.charAt(i) == 'é' || texto.charAt(i) == 'í' || texto.charAt(i) == 'ó' || texto.charAt(i) == 'ú')  {
+
                 contador++;
             }
         }
@@ -75,6 +81,10 @@ public class AnalizadorTexto {
     }
 
     static void ContarPalabras(Scanner sc) {
+        System.out.println("======================================");
+        System.out.println("      CONTADOR DE PALABRAS      ");
+        System.out.println("======================================");
+        System.out.println();
         String texto = PedirTexto(sc);
         texto = texto.replace('.', ' ')
                 .replace(',', ' ')
@@ -85,14 +95,20 @@ public class AnalizadorTexto {
                 .replace('-', ' ');
 
             texto = texto.trim();
+            boolean validacion = ValidacionTexto(texto);
+            if (validacion) {
+                String[] palabras = texto.split("\\s+");
 
-            String[] palabras = texto.split("\\s+");
-
-            int cantidad =  palabras.length;
-        System.out.println("El cantidad de palabras en el texto: " + cantidad);
+                int cantidad =  palabras.length;
+                System.out.println("El cantidad de palabras en el texto: " + cantidad);
+            }else System.out.println("No puede estar vacio");
 }
 
 static void PalabraMasLarga(Scanner sc) {
+    System.out.println("======================================");
+    System.out.println("      PALABRA MÁS LARGA      ");
+    System.out.println("======================================");
+    System.out.println();
         String texto = PedirTexto(sc).trim();
 
     texto = texto.replace('.', ' ')
