@@ -81,6 +81,6 @@ public class ConversosMultitipo {
 
     //metodo para que solo acepte numeros
     static double leerDoubleSeguro(String mensaje) {
-return 0;
+
     }
 }
