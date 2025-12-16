@@ -31,14 +31,14 @@ public class GestionTareas {
     }
 
     static void imprimirMenu() {
-        System.out.println("=====================");
-        System.out.println("||      MENÚ       ||");
-        System.out.println("=====================");
+        System.out.println("========================================");
+        System.out.println("||      MENÚ / GESTIÓN DE TAREAS      ||");
+        System.out.println("========================================");
         System.out.println("1. Añadir tarea");
         System.out.println("2. Listar tareas");
         System.out.println("3. Buscar palabra");
         System.out.println("0. Volver");
-        System.out.println("=====================");
+        System.out.println("========================================");
     }
 
     static void addTarea() {

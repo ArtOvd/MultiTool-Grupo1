@@ -23,8 +23,7 @@ public class AnalizadorTexto {
     }
 
     static int ElegirOpcion(Scanner sc) {
-        System.out.println();
-        System.out.print("Elige opción: ");
+        System.out.print("Elige una opción: ");
         int opcion = sc.nextInt();
         sc.nextLine();
         return opcion;
@@ -68,34 +67,7 @@ public class AnalizadorTexto {
         int contador = 0;
         for (int i = 0; i <= texto.length() - 1; i++) {
             switch (texto.charAt(i)) {
-                case 'a':
-                    contador++;
-                    break;
-                case 'e':
-                    contador++;
-                    break;
-                case 'i':
-                    contador++;
-                    break;
-                case 'o':
-                    contador++;
-                    break;
-                case 'u':
-                    contador++;
-                    break;
-                case 'á':
-                    contador++;
-                    break;
-                case 'ó':
-                    contador++;
-                    break;
-                case 'é':
-                    contador++;
-                    break;
-                case 'ú':
-                    contador++;
-                    break;
-                case 'í':
+                case 'a', 'o', 'e', 'i', 'u', 'á', 'ó', 'é', 'ú', 'í':
                     contador++;
                     break;
             }
