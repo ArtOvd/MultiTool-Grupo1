@@ -1,4 +1,4 @@
-import java.sql.SQLOutput;
+
 import java.util.Scanner;
 
 public class ConversosMultitipo {
@@ -7,8 +7,8 @@ public class ConversosMultitipo {
     public static void main(String[] args) {
     conversormultitipo();
     }
-    //metodo con el switch el cual es el menu/seleccionador de la aplicacion
 
+    //metodo con el switch el cual es el menu/seleccionador de la aplicacion
     public static void conversormultitipo(){
 
         int opcion;
@@ -18,7 +18,7 @@ public class ConversosMultitipo {
                 case 1:
                     conversorCelsiusFarenheit();
                     break;
-                case 2:;
+                case 2:
                     conversorMetrosPies();
                     break;
                 case 3:
@@ -40,12 +40,13 @@ public class ConversosMultitipo {
 
 
     }
+
     static int MostrarMenuYleeropcion(){
         int opcion;
 
         while (true){
             System.out.println( ">\n CONVERSOR DE DATOS");
-            System.out.println("> 1. Celsius a Farenheit");
+            System.out.println("> \n1. Celsius a Farenheit");
             System.out.println("> 2. Metros a Pies");
             System.out.println("> 3. Kg a Libras");
             System.out.println("> 0. Salir");
@@ -53,7 +54,7 @@ public class ConversosMultitipo {
 
             if(sc.hasNextInt()){
                 opcion = sc.nextInt();
-                sc.nextLine();
+                sc.nextLine(); //clean buffer
                 return opcion;
             }else{
                 System.out.println(">>>> Error: solo se aceptan números <<<<");
@@ -79,8 +80,20 @@ public class ConversosMultitipo {
         System.out.println(kg + "kg = " + libras +  " libras");
     }
 
-    //metodo para que solo acepte numeros
+    //metodo para que solo acepte numeros (COMPLETADO)
     static double leerDoubleSeguro(String mensaje) {
+        double numero;
 
+        while (true){
+            System.out.println(mensaje);
+        if(sc.hasNextDouble()){
+            numero = sc.nextDouble();
+            sc.nextLine();
+            return numero;
+        }else{
+            System.out.println( "Error solo se permiten numeros");
+            sc.nextLine();
+            }
+        }
     }
 }
