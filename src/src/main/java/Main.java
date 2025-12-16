@@ -23,7 +23,7 @@ public class Main {
 
                     break;
                 case 2:
-
+                    ConversosMultitipo.conversorMultitipo();
                     break;
                 case 3:
                     AnalizadorTexto.AnalizadorDeTexto();
