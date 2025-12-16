@@ -1,25 +1,25 @@
 import java.util.Scanner;
 
 public class AnalizadorTexto {
-    static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
-    int opcion;
+    static void AnalizadorDeTexto() {
+        Scanner sc = new Scanner(System.in);
+        int opcion;
         do {
             MenuAnalizadorTexto();
             opcion = ElegirOpcion(sc);
             FuncionalidadDelMenu(opcion, sc);
-        }while (opcion != 0 );
+        } while (opcion != 0);
     }
 
     static void MenuAnalizadorTexto() {
         System.out.println("======================================");
-        System.out.println("      MENU / ANALIZADOR DE TEXTO      ");
+        System.out.println("||     MENU / ANALIZADOR DE TEXTO   || ");
         System.out.println("======================================");
-        System.out.println();
         System.out.println("1. Contar vocales");
         System.out.println("2. Contar palabras");
         System.out.println("3. Palabra más larga");
         System.out.println("0. Volver");
+        System.out.println("======================================");
     }
 
     static int ElegirOpcion(Scanner sc) {
@@ -35,12 +35,11 @@ public class AnalizadorTexto {
         do {
             System.out.print("Introduce el texto el que quieres analizar: ");
             texto = sc.nextLine();
-        }while (!ValidacionTexto(texto));
-
+        } while (!ValidacionTexto(texto));
         return texto;
     }
 
-    static void FuncionalidadDelMenu(int opcion,  Scanner sc) {
+    static void FuncionalidadDelMenu(int opcion, Scanner sc) {
         switch (opcion) {
             case 1:
                 ContarVocales(sc);
@@ -54,82 +53,98 @@ public class AnalizadorTexto {
             case 0:
                 break;
             default:
-                System.out.println("Opcion no permetida");
+                System.out.println("Opcion no valida");
                 break;
         }
     }
 
 
-
     static void ContarVocales(Scanner sc) {
         System.out.println("======================================");
-        System.out.println("      CONTADOR DE VOCALES      ");
+        System.out.println("||       CONTADOR DE VOCALES        ||");
         System.out.println("======================================");
         System.out.println();
         String texto = PedirTexto(sc).toLowerCase();
         int contador = 0;
         for (int i = 0; i <= texto.length() - 1; i++) {
-            if (texto.charAt(i) == 'a' || texto.charAt(i) == 'e' || texto.charAt(i) == 'i' || texto.charAt(i) == 'o' || texto.charAt(i) == 'u'
-            || texto.charAt(i) == 'á' || texto.charAt(i) == 'é' || texto.charAt(i) == 'í' || texto.charAt(i) == 'ó' || texto.charAt(i) == 'ú')  {
-
-                contador++;
+            switch (texto.charAt(i)) {
+                case 'a':
+                    contador++;
+                    break;
+                case 'e':
+                    contador++;
+                    break;
+                case 'i':
+                    contador++;
+                    break;
+                case 'o':
+                    contador++;
+                    break;
+                case 'u':
+                    contador++;
+                    break;
+                case 'á':
+                    contador++;
+                    break;
+                case 'ó':
+                    contador++;
+                    break;
+                case 'é':
+                    contador++;
+                    break;
+                case 'ú':
+                    contador++;
+                    break;
+                case 'í':
+                    contador++;
+                    break;
             }
+
         }
         if (contador == 0) {
             System.out.println("No hay vocales en el texto introducido");
-        }else System.out.println("En el texto introducido hay " + contador + " vocales");
+        } else System.out.println("En el texto introducido hay " + contador + " vocales");
     }
 
     static void ContarPalabras(Scanner sc) {
         System.out.println("======================================");
-        System.out.println("      CONTADOR DE PALABRAS      ");
+        System.out.println("||       CONTADOR DE PALABRAS        ||");
         System.out.println("======================================");
         System.out.println();
         String texto = PedirTexto(sc);
-        texto = texto.replace('.', ' ')
-                .replace(',', ' ')
-                .replace('?', ' ')
-                .replace('!', ' ')
-                .replace(':', ' ')
-                .replace(';', ' ')
-                .replace('-', ' ');
+        texto = ReemplacarCaracteres(texto);
 
-            texto = texto.trim();
-            boolean validacion = ValidacionTexto(texto);
-            if (validacion) {
-                String[] palabras = texto.split("\\s+");
-
-                int cantidad =  palabras.length;
-                System.out.println("El cantidad de palabras en el texto: " + cantidad);
-            }else System.out.println("No puede estar vacio");
-}
-
-static void PalabraMasLarga(Scanner sc) {
-    System.out.println("======================================");
-    System.out.println("      PALABRA MÁS LARGA      ");
-    System.out.println("======================================");
-    System.out.println();
-        String texto = PedirTexto(sc).trim();
-
-    texto = texto.replace('.', ' ')
-            .replace(',', ' ')
-            .replace('?', ' ')
-            .replace('!', ' ')
-            .replace(':', ' ')
-            .replace(';', ' ')
-            .replace('-', ' ');
-
-    texto = texto.trim();
-
-    String[] palabras = texto.split("\\s+");
-
-    String MasLarga = palabras[0];
-    for (int i = 0; i < palabras.length; i++) {
-        if (palabras[i].length() > MasLarga.length()) {
-            MasLarga = palabras[i];
+        texto = texto.trim();
+        boolean validacion = ValidacionTexto(texto);
+        if (validacion) {
+            String[] palabras = texto.split("\\s+");
+            int cantidad = palabras.length;
+            System.out.println("El cantidad de palabras en el texto: " + cantidad);
+        } else {
+            System.out.println("No puede estar vacio");
         }
     }
-    System.out.println("La palabra mas larga es: " + MasLarga);
+
+    static void PalabraMasLarga(Scanner sc) {
+        System.out.println("======================================");
+        System.out.println("||        PALABRA MÁS LARGA         ||");
+        System.out.println("======================================");
+        System.out.println();
+        String texto = PedirTexto(sc).trim();
+
+        texto = ReemplacarCaracteres(texto);
+
+        texto = texto.trim();
+
+        String[] palabras = texto.split("\\s+");
+
+        String MasLarga = palabras[0];
+        for (int i = 0; i < palabras.length; i++) {
+            if (palabras[i].length() > MasLarga.length()) {
+                MasLarga = palabras[i];
+            }
+        }
+        System.out.println("La palabra mas larga es: " + MasLarga);
     }
 
     static boolean ValidacionTexto(String texto) {
@@ -138,6 +153,18 @@ static void PalabraMasLarga(Scanner sc) {
             return false;
         }
         return true;
+    }
+
+    static String ReemplacarCaracteres(String texto) {
+        texto = texto.replace('.', ' ')
+              .replace(',', ' ')
+              .replace('?', ' ')
+              .replace('!', ' ')
+              .replace(':', ' ')
+              .replace(';', ' ')
+              .replace('-', ' ');
+
+        return texto;
     }
 
 }
