@@ -5,7 +5,7 @@ public class GestionTareas {
     static String[] tareas = new String[15];
     static int index = 0;
 
-    public static void main(String[] args) {
+    public static void GestorDeTareas() {
         int opcion;
         do {
             imprimirMenu();
@@ -42,9 +42,9 @@ public class GestionTareas {
     }
 
     static void addTarea() {
-        System.out.println("===================");
-        System.out.println("AÑADIR UNA TAREA");
-        System.out.println("===================");
+        System.out.println("==============================");
+        System.out.println("||     AÑADIR UNA TAREA     ||");
+        System.out.println("==============================");
         if (index >= 15) {
             System.out.println("No se pueden añadir más tareas. Límite alcanzado.");
             return;
@@ -74,19 +74,19 @@ public class GestionTareas {
         }
         tareas[index] = tarea;
         System.out.println("Tarea añadida correctamente.");
-        System.out.println("===================");
+        System.out.println("==============================");
         index++;
     }
 
     static void listarTareas() {
         if (index != 0) {
-            System.out.println("=================");
-            System.out.println("LISTA DE TAREAS");
-            System.out.println("=================");
+            System.out.println("=============================");
+            System.out.println("||     LISTA DE TAREAS      ||");
+            System.out.println("=============================");
             for (int i = 0; i < index; i++) {
                 System.out.println("Tarea " + (i + 1) + ": " + tareas[i]);
             }
-            System.out.println("=================");
+            System.out.println("=============================");
         } else {
             System.out.println("Todavía no hay tareas para mostrar.");
         }
@@ -95,17 +95,17 @@ public class GestionTareas {
     static void buscarTareas() {
         if (index != 0) {
             boolean encontrado = false;
-            System.out.println("====================");
-            System.out.println("BÚSQUEDA DE TAREAS");
-            System.out.println("====================");
+            System.out.println("=============================");
+            System.out.println("||   BÚSQUEDA DE TAREAS    ||");
+            System.out.println("=============================");
             System.out.print("Indica el nombre de la tarea: ");
             String entrada = sc.nextLine().trim().toLowerCase();
             if (entrada.isEmpty()) {
                 System.out.println("No se admite entrada vacía.");
             } else {
-                System.out.println("====================");
-                System.out.println("TAREAS ENCONTRADAS:");
-                System.out.println("====================");
+                System.out.println("=============================");
+                System.out.println("||    TAREAS ENCONTRADAS   ||");
+                System.out.println("=============================");
                 for (int i = 0; i < index; i++) {
                     if (tareas[i].equals(entrada) || tareas[i].startsWith(entrada) || tareas[i].contains(entrada)) {
                         encontrado = true;
@@ -116,7 +116,7 @@ public class GestionTareas {
                     System.out.println("No hay tareas con este nombre.");
                 }
             }
-            System.out.println("====================");
+            System.out.println("=============================");
         } else {
             System.out.println("Todavía no hay ningúna tarea para buscar.");
         }
