@@ -14,7 +14,7 @@ public class Main {
             System.out.println("2 - Conversor multitipo.");
             System.out.println("3 - Analizador de texto.");
             System.out.println("4 - Gestión de tareas.");
-            System.out.println("5 - Salir");
+            System.out.println("0 - Salir");
             System.out.print("Tu opción: ");
             opcion = sc.nextInt();
             sc.nextLine();
@@ -23,22 +23,21 @@ public class Main {
 
                     break;
                 case 2:
-
+                    ConversosMultitipo.conversorMultitipo();
                     break;
-
                 case 3:
+                    AnalizadorTexto.AnalizadorDeTexto();
                     break;
-
                 case 4:
                     GestionTareas.GestorDeTareas();
                     break;
-                case 5:
+                case 0:
                     System.out.println("Gracias por usar nuestra aplicación!");
                     break;
                 default:
                     System.out.println("Opción no valida. Elige otra.");
             }
-        } while (opcion != 5);
+        } while (opcion != 0);
     }
 
 }
