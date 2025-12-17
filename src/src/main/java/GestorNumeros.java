@@ -13,14 +13,22 @@ public class GestorNumeros {
             switch(subMenu){
                 //Añadir un número a la lista
                 case 1:
+                    addNum1(count);
+                    count++;
+                    break;
                 //Listar números
                 case 2:
+                    break;
                 //Ver mínimo y máximo
                 case 3:
+                    break;
                 //Buscar números
                 case 4:
+                    break;
                 //Termina proceso
                 case 0:
+                    System.out.println(">>> Saliendo");
+                    break;
             }
         }
         while(subMenu != 5);
@@ -53,6 +61,19 @@ public class GestorNumeros {
             }
         }
         return isInt;
+    }
+
+    //AÑADIR NÚMERO
+    public static void addNum1(int count){
+        System.out.println("Introduce un número");
+        int add = checkInt();
+        if (count >= 20){
+            System.out.println("No se pueden añadir más números a la lista");
+        }
+        for (int i = 0; i <= count; i++) {
+            arrayNums[count] = add;
+
+        }
     }
 
 }
