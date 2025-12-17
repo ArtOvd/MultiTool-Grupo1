@@ -26,6 +26,7 @@ public class GestorNumeros {
                     break;
                 //Buscar números
                 case 4:
+                    searchNum(count);
                     break;
                 //Termina proceso
                 case 0:
@@ -109,5 +110,14 @@ public class GestorNumeros {
         System.out.println("El número mayor de la lista es: " + max + ".");
     }
 
-
+    //BUSCA LOS NÚMEROS
+    public static void searchNum(int count){
+        System.out.println("Introduce el número que quieres buscar: ");
+        int num = checkInt(); //
+        for (int i = 0; i <= count; i++){
+            if (num == arrayNums[i]){
+                System.out.println("El número se encuentra en la posición del array " + (i+1) + ".");
+            }
+        }
+    }
 }
