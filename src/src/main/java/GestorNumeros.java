@@ -18,9 +18,11 @@ public class GestorNumeros {
                     break;
                 //Listar números
                 case 2:
+                    listArr2();
                     break;
                 //Ver mínimo y máximo
                 case 3:
+                    minMaxArr3(count);
                     break;
                 //Buscar números
                 case 4:
@@ -75,5 +77,37 @@ public class GestorNumeros {
 
         }
     }
+
+    //LISTA EL ARRAY DE NÚMEROS
+    public static void listArr2(){
+        System.out.println("");
+        String lista = "";
+        for (int i = 0; i < arrayNums.length; i++){
+            if (i == 0){
+                lista += arrayNums[0];
+            }
+            else{
+                lista += ", " + arrayNums[i];
+            }
+        }
+        System.out.println(lista);
+    }
+
+    //MUESTRA LOS NÚMEROS MÍNIMOS Y MÁXIMOS
+    public static void minMaxArr3(int count){
+        int min = arrayNums[0];
+        int max = arrayNums[0];
+        for (int i = 0; i < count; i++){
+            if (min > arrayNums[i]){
+                min = arrayNums[i];
+            }
+            if (max < arrayNums[i]){
+                max = arrayNums[i];
+            }
+        }
+        System.out.println("El número menor de la lista es: " + min + ".");
+        System.out.println("El número mayor de la lista es: " + max + ".");
+    }
+
 
 }
