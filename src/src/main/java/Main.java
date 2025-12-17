@@ -20,7 +20,7 @@ public class Main {
             sc.nextLine();
             switch (opcion) {
                 case 1:
-
+                    GestorNumeros.gestorNumerosMenu();
                     break;
                 case 2:
                     ConversosMultitipo.conversorMultitipo();
@@ -39,5 +39,4 @@ public class Main {
             }
         } while (opcion != 0);
     }
-
 }
