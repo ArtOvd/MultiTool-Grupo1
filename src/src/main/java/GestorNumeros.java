@@ -18,7 +18,7 @@ public class GestorNumeros {
                     break;
                 //Listar números
                 case 2:
-                    listArr2();
+                    listArr2(count);
                     break;
                 //Ver mínimo y máximo
                 case 3:
@@ -40,13 +40,12 @@ public class GestorNumeros {
     public static void infoMenu(){
         System.out.println();
         System.out.println("============= LISTA =============");
-        System.out.println();
         System.out.println("1 - Añadir un número a la lista");
         System.out.println("2 - Listar números");
         System.out.println("3 - Ver mínimo y máximo");
         System.out.println("4 - Buscar números");
         System.out.println("5 - Salir");
-        System.out.println();
+        System.out.print("Tu opción: ");
     }
 
     //SCANNER QUE SE ASEGURA DE QUE SE ESTÉ INTRODUCIENDO UN INT
@@ -75,15 +74,14 @@ public class GestorNumeros {
         }
         for (int i = 0; i <= count; i++) {
             arrayNums[count] = add;
-
         }
     }
 
     //LISTA EL ARRAY DE NÚMEROS
-    public static void listArr2(){
+    public static void listArr2(int count){
         System.out.println("");
         String lista = "";
-        for (int i = 0; i < arrayNums.length; i++){
+        for (int i = 0; i < count; i++){
             if (i == 0){
                 lista += arrayNums[0];
             }
