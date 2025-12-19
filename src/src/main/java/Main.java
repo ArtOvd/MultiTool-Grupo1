@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    static void main(String[] args) {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int opcion;
         do {
@@ -19,7 +19,7 @@ public class Main {
             sc.nextLine();
             switch (opcion) {
                 case 1:
-
+                    GestorNumeros.gestorNumerosMenu();
                     break;
                 case 2:
                     ConversosMultitipo.conversorMultitipo();
