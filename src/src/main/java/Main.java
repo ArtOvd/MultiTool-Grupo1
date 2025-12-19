@@ -1,4 +1,3 @@
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Main {
@@ -39,5 +38,4 @@ public class Main {
             }
         } while (opcion != 0);
     }
-
 }
